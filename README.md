@@ -1,66 +1,54 @@
-## Foundry
+# TimeLock Smart Contract
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+This smart contract implements a time-based authorization mechanism known as a TimeLock. It allows delaying the execution of transactions for a predefined period, ensuring an extra layer of security and control over critical operations within your decentralized application.
 
-Foundry consists of:
+## Features:
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+1. **Time-Delayed Execution:** Transactions are queued and can only be executed after a specified delay.
+2. **Enhanced Security:** Mitigates the risk of accidental or unauthorized transactions by introducing a wait time.
+3. **Customizable Delays:** The minimum and maximum delay durations are configurable through contract parameters.
+4. **Foundry Integration:** Leverages the Foundry framework for efficient development and testing.
 
-## Documentation
+## Getting Started:
 
-https://book.getfoundry.sh/
-
-## Usage
-
-### Build
-
-```shell
-$ forge build
+1. **Clone the repository:**
+```bash
+    $ git clone https://github.com/mishraji874/TimeLock-Smart-Contract.git
+```
+2. **Install dependencies:**
+```bash
+    $ forge install
 ```
 
-### Test
-
-```shell
-$ forge test
+3. **Compile the contract:**
+```bash
+    $ forge build
 ```
 
-### Format
-
-```shell
-$ forge fmt
+4. **Deploy the contract:**
+```bash 
+    $ forge deploy TimeLock
 ```
 
-### Gas Snapshots
+5. **Testing:**
 
-```shell
-$ forge snapshot
+Unit tests are included to ensure the contract's functionality. Run the tests using:
+```bash
+    $ forge test
 ```
 
-### Anvil
+### Customization:
 
-```shell
-$ anvil
-```
+You can adjust the minimum and maximum delays by modifying the MIN_DELAY and MAX_DELAY constants within the TimeLock.sol contract.
 
-### Deploy
+### Additional Notes:
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
+1. This is a basic implementation of a TimeLock contract. Further features and functionalities can be added based on your specific needs.
+2. Refer to the TimeLock.sol and TestTimeLock.t.sol files for detailed contract logic and test cases.
 
-### Cast
+### Security Considerations:
 
-```shell
-$ cast <subcommand>
-```
+1. Carefully evaluate the appropriate delay durations to balance security and operational efficiency.
+2. Ensure proper access control mechanisms are in place to restrict who can queue and execute transactions.
 
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+Feel free to contribute to this project by improving the code, adding functionalities, or writing more comprehensive documentation.
